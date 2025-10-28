@@ -16,3 +16,7 @@ Auto Debian 13 VM setup for dev Python, rust, with included tools:
 ```
 make run
 ```
+
+## Screenshot
+
+![helix-python](helix.png)
