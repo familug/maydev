@@ -1,0 +1,11 @@
+theme = "dracula"
+
+[editor]
+true-color = true
+bufferline = 'always'
+[editor.soft-wrap]
+enable = true
+[editor.indent-guides]
+render = true
+
+

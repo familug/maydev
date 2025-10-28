@@ -1,0 +1,41 @@
+- hosts: all
+  tasks:
+  - name: debug
+    debug:
+      msg: Hello world
+  - name: install packages
+    apt:
+      state: present
+      name:
+        - tmux
+        - hx
+        - ripgrep
+        - rustup
+
+  - name: config rust
+    shell: |
+        rustup toolchain install stable
+        rustup default stable
+        rustup component add rust-analyzer clippy
+
+  - name: config helix
+    shell: |
+      hx --grammar fetch
+      hx --grammar build
+
+  - name: hx config file
+    copy:
+      src: config.toml
+      dest: "{{home}}/.config/helix/config.toml"
+
+
+  - name: install python env
+    apt:
+      state: present
+      name:
+        - python3-venv
+
+  - name: setup python env
+    shell: |
+      python3 -m venv "{{home}}/venv"
+      "{{home}}/venv/bin/pip3" install python-lsp-ruff jedi-language-server
