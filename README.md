@@ -1,5 +1,5 @@
 # maydev
-Auto VM setup for dev Python, rust, with included tools:
+Auto Debian 13 VM setup for dev Python, rust, with included tools:
 
 - Editor: helix (hx)
 - tmux
