@@ -1,3 +1,8 @@
 all: run
 run:
-	uvx --from 'ansible-core>2.19' ansible-playbook -K -i localhost, playbook.yml --extra-vars home=$(HOME)
+	uv run ansible-playbook \
+	  --connection local \
+	  --ask-become-pass \
+	  --inventory localhost, \
+	  --extra-vars home=$(HOME) -v \
+	  playbook.yml
